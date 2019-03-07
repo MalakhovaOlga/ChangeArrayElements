@@ -13,7 +13,7 @@ public class ChangeArrayElements {
             m[i] = (int) (Math.random() * (20)) - 10;
         }
 
-        System.out.print("Array:");
+        System.out.print("Array: ");
         for (i = 0; i < mLength; i++) {
             System.out.print(m[i] + "  ");
         }
@@ -26,24 +26,24 @@ public class ChangeArrayElements {
         }
     }
     public static Element searchMaxNegative(int m[]) {
-        int maxNegative = 0;
+        int maxNegative = -100;
         int indexNegative = 0;
         int i;
         Element elem = new Element();
 
-        for (i = 0; i < m.length; i++) {
+        /*for (i = 0; i < m.length; i++) {
             if (m[i] < 0) {
                 maxNegative = m[i];
                 indexNegative = i;
             }
-        }
+        }*/
 
-        if (maxNegative == 0) {
+        /*if (maxNegative == 0) {
             System.out.println("Array doesn't contain any negative numbers! Try again.");
             System.exit(0);
-        }
+        }*/
 
-        for (i = 1; i < m.length; i++) {
+        for (i = 0; i < m.length; i++) {
             if (m[i] < 0) {
                 if (m[i] > maxNegative) {
                     maxNegative = m[i];
@@ -51,6 +51,12 @@ public class ChangeArrayElements {
                 }
             }
         }
+
+        if (maxNegative == -100) {
+            System.out.println("Array doesn't contain any negative numbers! Try again.");
+            System.exit(0);
+        }
+
         elem.value = m[indexNegative];
         elem.index = indexNegative;
         System.out.println();
@@ -59,24 +65,24 @@ public class ChangeArrayElements {
     }
 
     public static Element searchMinPositive (int m[]) {
-        int minPositive = 0;
+        int minPositive = 100;
         int indexPositive = 0;
         int i;
         Element elem = new Element();
 
-        for (i = 0; i < m.length; i++) {
+        /*for (i = 0; i < m.length; i++) {
             if (m[i] > 0) {
                 minPositive = m[i];
                 indexPositive = i;
             }
-        }
+        }*/
 
-        if (minPositive == 0) {
+        /*if (minPositive == 0) {
             System.out.println("Array doesn't contain any positive numbers! Try again.");
             System.exit(0);
-        }
+        }*/
 
-        for (i = 1; i < m.length; i++) {
+        for (i = 0; i < m.length; i++) {
             if (m[i] > 0) {
                 if (m[i] < minPositive) {
                     minPositive = m[i];
@@ -84,6 +90,12 @@ public class ChangeArrayElements {
                 }
             }
         }
+
+        if (minPositive == 100) {
+            System.out.println("Array doesn't contain any positive numbers! Try again.");
+            System.exit(0);
+        }
+
         elem.value = m[indexPositive];
         elem.index = indexPositive;
         System.out.println("Minimum positive number: " + elem.value);
