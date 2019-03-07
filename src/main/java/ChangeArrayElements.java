@@ -26,33 +26,27 @@ public class ChangeArrayElements {
         }
     }
     public static Element searchMaxNegative(int m[]) {
-        int maxNegative = -100;
-        int indexNegative = 0;
+        int maxNegative = 0;
+        int indexNegative = -1;
         int i;
         Element elem = new Element();
 
-        /*for (i = 0; i < m.length; i++) {
-            if (m[i] < 0) {
-                maxNegative = m[i];
-                indexNegative = i;
-            }
-        }*/
-
-        /*if (maxNegative == 0) {
-            System.out.println("Array doesn't contain any negative numbers! Try again.");
-            System.exit(0);
-        }*/
-
         for (i = 0; i < m.length; i++) {
-            if (m[i] < 0) {
-                if (m[i] > maxNegative) {
+            if (m[i] < 0) { // рассматриваем только отрицательные элементы
+                if (indexNegative == -1) { // если это первый встретившийся отрицательный элемент, то далее будем сравнивать с ним
                     maxNegative = m[i];
                     indexNegative = i;
+                }
+                else { // если это не первый встретившийся отрицательный элемент, сравниваем его с ранее найденным
+                    if (m[i] > maxNegative) {
+                        maxNegative = m[i];
+                        indexNegative = i;
+                    }
                 }
             }
         }
 
-        if (maxNegative == -100) {
+        if (indexNegative == -1) {
             System.out.println("Array doesn't contain any negative numbers! Try again.");
             System.exit(0);
         }
@@ -65,33 +59,27 @@ public class ChangeArrayElements {
     }
 
     public static Element searchMinPositive (int m[]) {
-        int minPositive = 100;
-        int indexPositive = 0;
+        int minPositive = 0;
+        int indexPositive = -1;
         int i;
         Element elem = new Element();
 
-        /*for (i = 0; i < m.length; i++) {
-            if (m[i] > 0) {
-                minPositive = m[i];
-                indexPositive = i;
-            }
-        }*/
-
-        /*if (minPositive == 0) {
-            System.out.println("Array doesn't contain any positive numbers! Try again.");
-            System.exit(0);
-        }*/
-
         for (i = 0; i < m.length; i++) {
-            if (m[i] > 0) {
-                if (m[i] < minPositive) {
+            if (m[i] > 0) { // рассматриваем только положительные элементы
+                if (indexPositive == -1) { // если это первый встретившийся положительный элемент, то далее будем сравнивать с ним
                     minPositive = m[i];
                     indexPositive = i;
+                }
+                else { // если это не первый встретившийся положительный элемент, сравниваем его с ранее найденным
+                    if (minPositive > m[i]) {
+                        minPositive = m[i];
+                        indexPositive = i;
+                    }
                 }
             }
         }
 
-        if (minPositive == 100) {
+        if (indexPositive == -1) {
             System.out.println("Array doesn't contain any positive numbers! Try again.");
             System.exit(0);
         }
